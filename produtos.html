@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/Camisas Turbo Collection/logo.png">
+    <title>Produtos - Turbo Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+
+        header{
+            padding: 10px 50px; /* Reduzi de 20px para 10px */
+            position: relative;
+            width: 90vw;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 3;
+        }
+
+        /* Ajuste para permitir rolagem e manter a identidade visual */
+       body.page-produtos { 
+        overflow-y: auto !important; /* Força a barra de rolagem a aparecer */
+        overflow-x: hidden;         /* Evita que a página balance para os lados */
+        background-color: #0f0f1e; 
+        height: auto !important;    /* Garante que o corpo não fique preso à altura da tela */
+        }
+
+        .container {
+            height: auto !important;     /* Libera a altura fixa de 100vh */
+            min-height: 100vh;
+            overflow: visible !important; /* Permite que o conteúdo "vaze" para baixo */
+        }
+
+        /* Fixa os círculos ao fundo para que não sumam ao rolar */
+        .tech-circle {
+            position: fixed; /* Isso mantém o fundo parado enquanto os produtos deslizam */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 40px 8% 80px; 
+            position: relative;
+            z-index: 2; /* Garante que os cards fiquem na frente dos círculos */
+        }
+
+        /* Padronização dos Cards usando suas classes existentes */
+        .card-produto {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-produto:hover { 
+            border-color: #ff000d; 
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .card-produto img { 
+            max-width: 100%; 
+            border-radius: 15px; 
+            margin-bottom: 20px; 
+        }
+    </style>
+</head>
+<body class="page-produtos">
+    <header>
+        <div class="logo">Turbo Collection</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li class="active-link">Produtos</li>
+                <li><a href="contato.html" style="text-decoration: none; color: inherit;">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Fundo tecnológico fixo -->
+        <div class="tech-circle">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+
+        <section class="grid-produtos">
+            <!-- Produto 1: Der Kaiser -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/fusca.webp" alt="Der Kaiser">
+                <p class="product-tag">Alemanha</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Der Kaiser</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Der%20Kaiser%20(Fusca).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto 2: Brasil -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/brasilia.webp" alt="Brasil">
+                <p class="product-tag">Brasil</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Ronaldo</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20VW%20Brasília%20(Pentacampeão).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+                <!-- Produto 3: Argentina -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/clio.webp" alt="França">
+                <p class="product-tag">França</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Zidane</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Renault%20Clio%20(França).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+                <!-- Produto 4: Espanha -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/parati.webp" alt="Ronaldinho">
+                <p class="product-tag">Brasil</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Bruxo</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20VW%20Parati%20(Brasil).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+                <!-- Produto 5: Inglaterra -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/gti.webp" alt="Fenômeno">
+                <p class="product-tag">Brasil</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Fenômeno</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa5%20VW%20Gol%20GTI%20(Brasil).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+                <!-- Produto 7: Uruguai 1 -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/grumett.webp" alt="Uruguai1">
+                <p class="product-tag">Uruguai</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Obdulio Varela</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20VW%20Grumett%20(Uruguai).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+                </div>
+
+                <!-- Produto 8: Uruguai 2 -->
+            <div class="card-produto">
+                <img src="./img/Camisas Turbo Collection/uno.webp" alt="O Bruxo">
+                <p class="product-tag">Brasil</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Ronaldinho</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Fiat%20El%20Uno%20Bruxo%20(Brasil).%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
