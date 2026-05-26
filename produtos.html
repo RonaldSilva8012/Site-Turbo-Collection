@@ -85,7 +85,7 @@
         <div class="logo">Turbo Collection</div>
         <nav>
             <ul>
-                <li><a href="index.html" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li><a href="index.html" style="text-decoration: none; color: inherit;">Inicio</a></li>
                 <li class="active-link">Produtos</li>
                 <li><a href="contato.html" style="text-decoration: none; color: inherit;">Contato</a></li>
             </ul>
@@ -101,9 +101,19 @@
             <div class="circle"></div>
         </div>
 
+        <div class="filtros-colecoes">
+            <button class="btn-filtro active" onclick="filtrarProdutos('todos')">Todos</button>
+            <button class="btn-filtro" onclick="filtrarProdutos('copa')">Collection Copa</button>
+            <button class="btn-filtro" onclick="filtrarProdutos('nerd')">Collection Nerd</button>
+            <button class="btn-filtro" onclick="filtrarProdutos('namorados')">Collection Namorados</button>
+            <button class="btn-filtro" onclick="filtrarProdutos('muscle')">Collection Brasilians</button>
+        </div>
+
+ 
+
         <section class="grid-produtos">
             <!-- Produto 1: Der Kaiser -->
-            <div class="card-produto">
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/fusca.webp" alt="Der Kaiser">
                 <p class="product-tag">Alemanha</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Der Kaiser</h3>
@@ -116,7 +126,7 @@
             </div>
 
             <!-- Produto 2: Brasil -->
-            <div class="card-produto">
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/brasilia.webp" alt="Brasil">
                 <p class="product-tag">Brasil</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Ronaldo</h3>
@@ -128,7 +138,7 @@
                 </a>
             </div>
                 <!-- Produto 3: Argentina -->
-            <div class="card-produto">
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/clio.webp" alt="França">
                 <p class="product-tag">França</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Zidane</h3>
@@ -140,7 +150,7 @@
                 </a>
             </div>
                 <!-- Produto 4: Espanha -->
-            <div class="card-produto">
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/parati.webp" alt="Ronaldinho">
                 <p class="product-tag">Brasil</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Bruxo</h3>
@@ -152,7 +162,7 @@
                 </a>
             </div>
                 <!-- Produto 5: Inglaterra -->
-            <div class="card-produto">
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/gti.webp" alt="Fenômeno">
                 <p class="product-tag">Brasil</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Fenômeno</h3>
@@ -165,7 +175,7 @@
             </div>
 
                 <!-- Produto 7: Uruguai 1 -->
-            <div class="card-produto">
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/grumett.webp" alt="Uruguai1">
                 <p class="product-tag">Uruguai</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Obdulio Varela</h3>
@@ -177,8 +187,8 @@
                 </a>
                 </div>
 
-                <!-- Produto 8: Uruguai 2 -->
-            <div class="card-produto">
+                <!-- Produto 8: Uno 2 -->
+            <div class="card-produto" data-categoria="copa">
                 <img src="./img/Camisas Turbo Collection/uno.webp" alt="O Bruxo">
                 <p class="product-tag">Brasil</p>
                 <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Ronaldinho</h3>
@@ -189,7 +199,492 @@
                    Comprar agora
                 </a>
             </div>
+
+             <!-- Produto 8: Neymar  Branca-->
+            <div class="card-produto" data-categoria="copa">
+                <img src="./img/Camisas Turbo Collection/NeymarBranca.png" alt="Neymar Branca">
+                <p class="product-tag">Ford</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Escort</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Ford%20Escort%20Neymar%20Branca%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto 8: Neymar  Branca-->
+            <div class="card-produto" data-categoria="copa">
+                <img src="./img/Camisas Turbo Collection/NeymarVerde.png" alt="Neymar Verde">
+                <p class="product-tag">Ford</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Escort</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Ford%20Escort%20Neymar%20Verde%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto 9: Opala Comodoro -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/opalacomodoro.webp" alt="Comodoro">
+                <p class="product-tag">Comodoro</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Opala</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Opala%20Comodoro%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+               <!-- Produto Chevette -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/ChevetteBege.png" alt="Chevette">
+                <p class="product-tag">Chevas</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surf</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Chevette%20Bege%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+               <!-- Produto Chevette -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/ChevetteBranco.png" alt="Chevette">
+                <p class="product-tag">Chevas</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surf</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Chevette%20Branco%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+               <!-- Produto Chevette -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/ChevettePreto.png" alt="Chevette">
+                <p class="product-tag">Chevas</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surf</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Chevette%20Preto%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+           
+               <!-- Produto Chevette -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/ChevetteVerde.png" alt="Chevette">
+                <p class="product-tag">Chevas</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surf</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Chevette%20Verde%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+            
+               <!-- Produto Opala SS -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/OpalaSS.png" alt="Opala SS">
+                <p class="product-tag">Opala</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">SS</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Opala%20SS%20Branco%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+           
+              <!-- Produto Saveiro Surf -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/SurfBege.png" alt="Surf">
+                <p class="product-tag">Saveiro</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surfistinha</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Surfistinha%20Bege%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto Saveiro Surf -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/SurfBranca.png" alt="Surf">
+                <p class="product-tag">Saveiro</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surfistinha</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Surfistinha%20Branca%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto Saveiro Surf -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/SurfPreta.png" alt="Surf">
+                <p class="product-tag">Saveiro</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surfistinha</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Surfistinha%20Preta%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+            
+              <!-- Produto Saveiro Surf -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/SurfVerde.png" alt="Surf">
+                <p class="product-tag">Saveiro</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Surfistinha</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Surfistinha%20Verde%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+            
+              <!-- Produto Saveiro Cross -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/CrossBranca.png" alt="Cross">
+                <p class="product-tag">Cross</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Lowstyle</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Lowstyle%20Branca%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto Saveiro Cross -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/CrossPreta.png" alt="Cross">
+                <p class="product-tag">Cross</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Lowstyle</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Lowstyle%20Preta%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto Saveiro Cross -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/CrossVerde.png" alt="Cross">
+                <p class="product-tag">Cross</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Lowstyle</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Saveiro%20Lowstyle%20Verde%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto Palio -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/PalioPreto.png" alt="Palio">
+                <p class="product-tag">Palio</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Samurai</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Palio%20Samurai%20Preto%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto Nacional Explore -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/NacionalExplore.png" alt="Nacional Explore">
+                <p class="product-tag">Nacional</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Explore</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Nacional%20Explore%20Preto%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto Initial D -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/InitialD.png" alt="Initial D">
+                <p class="product-tag">Initial D</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Opala</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Initial%20D%20Opala%20Preto%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto Ford 1500 -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/Ford1500.png" alt="Ford">
+                <p class="product-tag">Japan</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">1500</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Ford%20D%201500%20Branca%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto XR3 -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/XR3Preto.png" alt="XR3">
+                <p class="product-tag">XR3</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Stay Hype</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Ford%20D%20Escort%20XR3%20Preto%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto XR3 -->
+            <div class="card-produto" data-categoria="muscle">
+                <img src="./img/Camisas Turbo Collection/XR3Verde.png" alt="XR3">
+                <p class="product-tag">XR3</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Stay Hype</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Ford%20D%20XR3%20Verde%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto Monza -->
+            <div class="card-produto" data-categoria="namorados">
+                <img src="./img/Camisas Turbo Collection/MonzaBranco.png" alt="Monza">
+                <p class="product-tag">Monza</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Love At</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Monza%20D%20Love%20Branco%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto Two Bodies -->
+            <div class="card-produto" data-categoria="namorados">
+                <img src="./img/Camisas Turbo Collection/TwoBodies.png" alt="Two Bodies">
+                <p class="product-tag">Two Bodies</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Escort XR3</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Two%20Bodies%20Preto%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto 10: Einstein Branca -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/EinsteinBranca.webp" alt="Einstein Branca">
+                <p class="product-tag">Mecânico</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Einstein</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Mecânico%20Einstein%20Branca%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 11: Einstein Branca -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/EinsteinPreta.webp" alt="Einstein Preta">
+                <p class="product-tag">Mecânico</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Einstein</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Mecânico%20Einstein%20Preta%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto 11: Einstein Bege -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/AlbertBege.png" alt="Albert Bege">
+                <p class="product-tag">Albert</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">147</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Albert%20Fiat%20147%20Bege%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 12: Einstein Branca -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/AlbertBranca.png" alt="Albert Branca">
+                <p class="product-tag">Albert</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">147</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Albert%20Fiat%20147%20Branca%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto 13: Einstein Preta -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/AlbertPreta.png" alt="Albert Preta">
+                <p class="product-tag">Albert</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">147</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Albert%20Fiat%20147%20Preta%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+              <!-- Produto 13: Einstein Verde -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/AlbertVerde.png" alt="Albert Verde">
+                <p class="product-tag">Albert</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">147</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Albert%20Fiat%20147%20Verde%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 14: Marie Bege -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/MarieBege.png" alt="Marie Bege">
+                <p class="product-tag">Marie</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Porções Secretas</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Marie%20Porções%20Secretas%20Bege%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 15: Marie Branca -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/MarieBranca.png" alt="Marie Branca">
+                <p class="product-tag">Marie</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Porções Secretas</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Marie%20Porções%20Secretas%20Branca%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto 16: Marie Preta -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/MariePreta.png" alt="Marie Preta">
+                <p class="product-tag">Marie</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Porções Secretas</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Marie%20Porções%20Secretas%20Preta%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 17: Marie Verde -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/MarieVerde.png" alt="Marie Verde">
+                <p class="product-tag">Marie</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Porções Secretas</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Marie%20Porções%20Secretas%20Verde%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto 18: Tesla Bege -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/TeslaBege.png" alt="Tesla Bege">
+                <p class="product-tag">Nikola Tesla</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Obra Prima</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Tesla%20Obra%20Prima%20Bege%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+            <!-- Produto 19: Tesla Branca -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/TeslaBranca.png" alt="Tesla Branca">
+                <p class="product-tag">Nikola Tesla</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Obra Prima</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Tesla%20Obra%20Prima%20Branca%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 20: Tesla Preta -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/TeslaPreta.png" alt="Tesla Preta">
+                <p class="product-tag">Nikola Tesla</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Obra Prima</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Tesla%20Obra%20Prima%20Preta%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
+             <!-- Produto 21: Tesla Verde -->
+            <div class="card-produto" data-categoria="nerd">
+                <img src="./img/Camisas Turbo Collection/TeslaVerde.png" alt="Tesla Verde">
+                <p class="product-tag">Nikola Tesla</p>
+                <h3 class="product-name" style="font-size: 1.5rem; margin-bottom: 15px;">Obra Prima</h3>
+                <a href="https://wa.me/5531973145178?text=Olá!%20Quero%20garantir%20a%20minha%20camisa%20Tesla%20Obra%20Prima%20Verde%20%0ATamanho:%20%0AMeu%20CEP%20para%20o%20frete:%20" 
+                   class="btn comprar" 
+                   target="_blank" 
+                   style="text-decoration: none;">
+                   Comprar agora
+                </a>
+            </div>
+
         </section>
     </main>
+
+    <script src="js/main.js"></script>
+
 </body>
 </html>
