@@ -100,17 +100,27 @@
             <div class="circle"></div>
             <div class="circle"></div>
         </div>
+<div class="filtros-colecoes filtros-desktop">
+    <button class="btn-filtro active" onclick="filtrarProdutos('todos', this)">Todos</button>
+    <button class="btn-filtro" onclick="filtrarProdutos('copa', this)">Collection Copa</button>
+    <button class="btn-filtro" onclick="filtrarProdutos('nerd', this)">Collection Nerd</button>
+    <button class="btn-filtro" onclick="filtrarProdutos('namorados', this)">Collection Namorados</button>
+    <button class="btn-filtro" onclick="filtrarProdutos('muscle', this)">Collection Brazilians</button>
+</div>
 
-        <div class="filtros-colecoes">
-            <button class="btn-filtro active" onclick="filtrarProdutos('todos')">Todos</button>
-            <button class="btn-filtro" onclick="filtrarProdutos('copa')">Collection Copa</button>
-            <button class="btn-filtro" onclick="filtrarProdutos('nerd')">Collection Nerd</button>
-            <button class="btn-filtro" onclick="filtrarProdutos('namorados')">Collection Namorados</button>
-            <button class="btn-filtro" onclick="filtrarProdutos('muscle')">Collection Brazilians</button>
-        </div>
-
- 
-
+<div class="filtros-colecoes-mobile">
+    <button id="btn-filtro-principal" class="btn-filtro-gatilho">
+        Filtrar Categorias <span class="seta-dropdown">▼</span>
+    </button>
+    
+    <div id="lista-categorias-mobile" class="dropdown-filtros">
+        <button class="opcao-filtro active" onclick="executarFiltroMobile('todos', 'Todos')">Todos</button>
+        <button class="opcao-filtro" onclick="executarFiltroMobile('copa', 'Collection Copa')">Collection Copa</button>
+        <button class="opcao-filtro" onclick="executarFiltroMobile('nerd', 'Collection Nerd')">Collection Nerd</button>
+        <button class="opcao-filtro" onclick="executarFiltroMobile('namorados', 'Collection Namorados')">Collection Namorados</button>
+        <button class="opcao-filtro" onclick="executarFiltroMobile('muscle', 'Collection Brazilians')">Collection Brazilians</button>
+    </div>
+</div>
         <section class="grid-produtos">
             <!-- Produto 1: Der Kaiser -->
             <div class="card-produto" data-categoria="copa">

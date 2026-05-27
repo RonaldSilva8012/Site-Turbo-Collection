@@ -61,19 +61,27 @@ if (container && prevButton && nextButton) {
     }, { passive: true });
 }
 
-// --- LÓGICA DO FILTRO DE PRODUTOS ---
-function filtrarProdutos(categoria) {
+// --- LÓGICA DO FILTRO DE PRODUTOS (DESKTOP) ---
+function filtrarProdutos(categoria, elementoClicado = null) {
     const cards = document.querySelectorAll('.card-produto');
     const botoes = document.querySelectorAll('.btn-filtro');
 
+    // Remove a classe active de todos os botões do desktop
     botoes.forEach(btn => btn.classList.remove('active'));
     
-    // Identifica o botão clicado corretamente
-    const btnClicado = event.currentTarget;
-    btnClicado.classList.add('active');
+    // Se o elemento foi passado direto (Desktop), ativa ele
+    if (elementoClicado) {
+        elementoClicado.classList.add('active');
+    } 
+    // Caso contrário, tenta mapear pelo evento nativo se ele existir e for do desktop
+    else if (window.event && window.event.currentTarget && typeof window.event.currentTarget.classList === 'function') {
+        if (window.event.currentTarget.classList.contains('btn-filtro')) {
+            window.event.currentTarget.classList.add('active');
+        }
+    }
 
+    // Faz a filtragem dos cards normalmente
     cards.forEach(card => {
-        // Usamos 'flex' para manter seu layout, ou '' para remover o display inline
         if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
             card.style.display = 'flex';
         } else {
@@ -82,11 +90,51 @@ function filtrarProdutos(categoria) {
     });
 }
 
-// --- LÓGICA DO MENU (Ativo) ---
-const currentPage = window.location.pathname.split("/").pop();
-const navLinks = document.querySelectorAll('nav ul li a');
-navLinks.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active');
+// --- LÓGICA DO FILTRO MOBILE (ABRE DROPDOWN E FILTRA) ---
+document.addEventListener("DOMContentLoaded", () => {
+    const btnFiltroPrincipal = document.getElementById('btn-filtro-principal');
+    const listaCategoriasMobile = document.getElementById('lista-categorias-mobile');
+
+    // Executa apenas se os elementos mobile existirem na página atual
+    if (btnFiltroPrincipal && listaCategoriasMobile) {
+        
+        // Abre e fecha o dropdown ao clicar no botão "Filtrar Categorias"
+        btnFiltroPrincipal.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita fechar imediatamente pelo clique no documento
+            listaCategoriasMobile.classList.toggle('show');
+        });
+
+        // Fecha o dropdown se o usuário clicar em qualquer outro lugar da tela
+        document.addEventListener('click', () => {
+            listaCategoriasMobile.classList.remove('show');
+        });
     }
 });
+
+// Função chamada pelos botões internos do dropdown mobile
+function executarFiltroMobile(categoria, nomeCategoria) {
+    const listaCategoriasMobile = document.getElementById('lista-categorias-mobile');
+    const btnFiltroPrincipal = document.getElementById('btn-filtro-principal');
+    const opcoesFiltro = document.querySelectorAll('.opcao-filtro');
+
+    // 1. Filtra os produtos reutilizando sua lógica estruturada
+    filtrarProdutos(categoria);
+
+    // 2. Atualiza o texto do botão principal com a categoria ativa e mantém a seta
+    if (btnFiltroPrincipal) {
+        btnFiltroPrincipal.innerHTML = `${nomeCategoria} <span class="seta-dropdown">▼</span>`;
+    }
+
+    // 3. Gerencia o estilo ativo entre as opções do dropdown mobile
+    opcoesFiltro.forEach(opcao => opcao.classList.remove('active'));
+    
+    // Procura e destaca a opção clicada
+    if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+    }
+
+    // 4. Fecha o dropdown após a seleção
+    if (listaCategoriasMobile) {
+        listaCategoriasMobile.classList.remove('show');
+    }
+}

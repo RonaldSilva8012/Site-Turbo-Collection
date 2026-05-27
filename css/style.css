@@ -1,4 +1,7 @@
-*{
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E BASE
+   ========================================================================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,9 +13,17 @@ body {
     background-color: #0f0f1e; 
     color: #fff;
     font-size: 16px;
-    overflow: hidden; /*para não deixar a pagina rolar  */
+    overflow: hidden; /* Mantido para controle de telas específicas, mas alterável por classes */
 }
 
+body.liberar-rolagem {
+    overflow-y: auto !important;
+    overflow-x: hidden; /* Evita que a tela balance para os lados */
+}
+
+/* ==========================================================================
+   2. HEADER E NAVEGAÇÃO (FIXO)
+   ========================================================================== */
 header {
     position: fixed;
     width: 90vw;
@@ -24,17 +35,23 @@ header {
     z-index: 3;
 }
 
-.logo{
+.logo {
     font-family: "Orbitron", sans-serif;
     font-size: 2rem;
     font-weight: 900;
-    color:#ffffff;
+    color: #ffffff;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
 header nav ul {
     display: flex;
     gap: 48px; /* Espaçamento entre os botões */
+}
+
+header nav ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0;
 }
 
 header nav ul li a {
@@ -46,13 +63,7 @@ header nav ul li a {
     height: 100%;
 }
 
-header nav ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 5px 0;
-}
-
-header nav ul li::after{  /*after serve para o depois do texto. Já o before serve para o antes do texto  */
+header nav ul li::after {
     content: '';
     position: absolute;
     left: 0;
@@ -63,24 +74,31 @@ header nav ul li::after{  /*after serve para o depois do texto. Já o before ser
     transition: width 0.6s ease;
 }
 
-header nav ul li:hover::after{
+header nav ul li:hover::after {
     width: 100%;
 }
 
-.container{
+.active-link::after {
+    width: 100% !important;
+}
+
+/* ==========================================================================
+   3. LAYOUT DA VITRINE PRINCIPAL (BANNER/SLIDESHOW)
+   ========================================================================== */
+.container {
     height: 100vh;
     position: relative;
-    background-color: linear-gradient(135deg, #0f0f1e 0% #3a1f1f);
+    background: linear-gradient(135deg, #0f0f1e 0%, #3a1f1f); /* Corrigida a vírgula na sintaxe */
     overflow: hidden;
 }
 
-.container::before{
+.container::before {
     content: '';
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 0, 0, 0.2)0%, rgba(15,15,30,0)70%);
-    position: absolute; /*esse é o esquema para centraliza qualquer coisa (position, top, left e transform  */
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, rgba(15,15,30,0) 70%);
+    position: absolute; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -94,46 +112,37 @@ header nav ul li:hover::after{
         opacity: 0.5;
         transform: translate(-50%, -50%) scale(0.8);
     }
-
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.5);
     }
 }
 
-.list{
+.list {
     width: 80%;
     height: 100%;
     margin: 0 auto;
     position: relative;
 }
 
-.item{
+.item {
     position: absolute;
-    inset: 0; /*E o mesmo que zerar o width, height, margin */
+    inset: 0; 
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-
-    /* Animação */
-
     transform: translateX(100vw);
     transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
+    pointer-events: auto; 
 }
 
-.active{
+.item.active {
     opacity: 1;
-
-    /* Animação */
-     transform: translateX(0);
+    transform: translateX(0);
 }
 
-.active-link::after {
-    width: 100% !important;
-}
-
-.product-img{
+.product-img {
     width: 45%;
     height: 100%;
     display: flex;
@@ -141,28 +150,25 @@ header nav ul li:hover::after{
     justify-content: center;
     position: relative;
     z-index: 2;
-
-    /* Animação */
     transform: translateX(200px);
     opacity: 0;
     transition: transform 0.6s ease, opacity 0.6s ease;
     transition-delay: 0.8s;
 }
 
-.active .product-img{
+.active .product-img {
     transform: translateX(0);
     opacity: 1;
 }
 
-.product-img img{
-    max-width: 80%;   /*tamanho das imagens  */
+.product-img img {
+    max-width: 80%;   
     max-height: 60%;
     filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.2));
     border-radius: 20px;
-    
 }
 
-.content{
+.content {
     width: 55%;
     padding-right: 80px;
     display: flex;
@@ -172,48 +178,186 @@ header nav ul li:hover::after{
     flex-direction: column;
 }
 
-.product-tag{
+.product-tag {
     font-size: 1rem;
     text-transform: uppercase;
     color: #f70505;
     font-weight: 600;
     letter-spacing: 2px;
     margin-bottom: 10px;
-   
 }
 
-.product-name{
+.product-name {
     font-size: 2.5rem;
     font-family: "Orbitron", sans-serif;
-    line-height: 1.1; /*tamanho da linha  */
+    line-height: 1.1; 
     margin-bottom: 20px;
 }
 
-.description{
+.description {
     font-size: 1.1rem;
     color: #b8b8d0;
     line-height: 1.6;
     margin-bottom: 30px;
     max-height: 600px;
-    display: block; /* Texto aparece completo no PC */
+    display: block; 
     overflow: visible;
 }
 
-.btn{
-    padding: 12px 16px;
-    background: linear-gradient(90deg, #ff000d, #ff3131);
-    border-radius: 30px;
-    cursor: pointer;
-    color: #000000;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    transition: all 0.4s ease;
-    display: none;
-    /* display: inline-block; */
+/* Interface de Navegação do Slider */
+.arrows {
+    position: absolute;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
 }
 
-.btn.comprar{
+.arrow-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    transition: all 0.4s ease;
+}
+
+.arrow-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    color: #ff000d;
+    background-color: #f70505;
+    transform: scale(1.05);
+}
+
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 5;
+}
+
+.numbers {
+    font-family: "Orbitron", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 40px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.dot.active {
+   background-color: rgba(255, 2, 2, 0.767); 
+   box-shadow: 0 0 20px rgb(255, 0, 0);
+}
+
+/* Fundo Animado (Círculos Tecnológicos) */
+.tech-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; 
+    z-index: 0;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.circle:nth-child(1) { width: 200px; height: 200px; top: 10%; left: 10%; }
+.circle:nth-child(2) { width: 300px; height: 300px; top: 60%; left: 80%; }
+.circle:nth-child(3) { width: 150px; height: 150px; top: 70%; left: 20%; }
+.circle:nth-child(4) { width: 120px; height: 120px; top: 20%; left: 70%; }
+
+/* ==========================================================================
+   4. SEÇÃO DE PRODUTOS (VITRINE / GRID)
+   ========================================================================== */
+.page-produtos {
+    min-height: 100vh; 
+    height: auto !important; 
+    display: block;
+    overflow-y: auto !important; 
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    padding: 40px 5% 80px; 
+    position: relative;
+    z-index: 2;
+}
+
+.card-produto {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease; 
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.card-produto:hover {
+    border-color: #ff000d;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3); 
+    background: rgba(255, 0, 0, 0.05); 
+}
+
+.card-produto img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card-produto:hover img {
+    transform: scale(1.05); 
+}
+
+.card-produto h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.card-produto .product-tag {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+/* Botões Gerais e de Compra */
+.btn, .btn.comprar {
     padding: 12px 16px;
     background: linear-gradient(90deg, #ff000d, #ff3131);
     border-radius: 30px;
@@ -226,215 +370,62 @@ header nav ul li:hover::after{
     display: inline-block;
 }
 
-.btn.comprar:hover{
+.btn:hover, .btn.comprar:hover {
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
     transform: scale(1.05);
-    transition: 0.3s;
 }
 
-
-
-.btn:hover{
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-    transform: scale(1.05);
-    transition: 0.3s;
+/* Visibilidade das Categorias e Utilitários */
+.mobile-only {
+    display: none !important;
 }
 
-.arrows{
-    position: absolute;
-    width: 90%;
+.categorias-desktop {
     display: flex;
-    justify-content: space-between;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
+    gap: 15px;
 }
 
-.arrow-btn{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    transition: all 0.4s ease;
-}
-
-.arrow-btn:hover{
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-    color: #ff000d;
-    background-color: #f70505;
-    transform: scale(1.05);
-    transition: 0.3s;
-}
-
-.indicators{
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+/* ==========================================================================
+   5. FILTROS DE COLEÇÕES (DESKTOP)
+   ========================================================================== */
+.filtros-colecoes {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    z-index: 5;
-}
-
-.numbers{
-    font-family: "Orbitron", sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.2)
-}
-
-.dots{
-
-    display: flex;
-    gap: 10px;
-
-}
-
-.dot{
-    width: 40px;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-
-}
-
-.dot.active{
-   background-color: rgba(255, 2, 2, 0.767); 
-   box-shadow: 0 0 20px rgb(255, 0, 0);
-}
-
-.tech-circle{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.circle{
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 0, 0, 0.2);
-}
-
-.circle:nth-child(1){
-    width: 200px;
-    height: 200px;
-    top: 10%;
-    left: 10%; 
-}
-
-.circle:nth-child(2){
-    width: 300px;
-    height: 300px;
-    top: 60%;
-    left: 80%; 
-}
-
-.circle:nth-child(3){
-    width: 150px;
-    height: 150px;
-    top: 70%;
-    left: 20%; 
-}
-
-.circle:nth-child(4){
-    width: 120px;
-    height: 120px;
-    top: 20%;
-    left: 70%; 
-}
-
-/* Produtos  */
-
-body.liberar-rolagem {
-    overflow-y: auto !important;
-    overflow-x: hidden; /* Evita que a tela balance para os lados */
-}
-
-/* Garanta que o container de produtos não tenha altura fixa de 100vh */
-.page-produtos {
-    min-height: 100vh; 
-    height: auto; /* Permite que o container cresça com o conteúdo */
-    display: block;
-}
-
-/* Configuração para permitir rolagem na página de produtos */
-.page-produtos {
-    overflow-y: auto !important; 
-    background-color: var(--bg-main);
-}
-
-/* Container que envolve todos os produtos */
-/* Ajuste na Grid para comportar muitos itens sem quebrar */
-.grid-produtos {
-    display: grid;
-    /* Ajustado para 250px para caberem mais itens lado a lado em telas médias */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 30px;
-    padding: 150px 5% 80px; 
+    justify-content: center;
+    gap: 15px;
+    margin: 130px auto 10px; /* Margem superior espaça do cabeçalho fixo */
     position: relative;
-    z-index: 2;
+    z-index: 10; /* Garante que fique acima da grid e seja clicável */
+    flex-wrap: wrap; 
 }
 
-/* Card de Produto - Garantindo que o hover e layout fiquem fixos */
-.card-produto {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 0, 0, 0.1);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
-    backdrop-filter: blur(5px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Mantém os botões alinhados na mesma altura */
+.filtros-colecoes-mobile {
+    display: none; /* Esconde a estrutura mobile por padrão no desktop */
 }
 
-/* Efeito de Hover Ativado */
-.card-produto:hover {
+.btn-filtro {
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+    background: linear-gradient(90deg, #ff000d, #ff3131);
     border-color: #ff000d;
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3); /* Brilho vermelho mais intenso */
-    background: rgba(255, 0, 0, 0.05); /* Leve fundo avermelhado no hover */
+    color: #000000; /* Texto escuro ao ativar para melhor leitura */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); 
 }
 
-/* Imagens padronizadas */
-.card-produto img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
-
-.card-produto:hover img {
-    transform: scale(1.05); /* Zoom sutil na camisa ao passar o mouse */
-}
-
-/* Textos dentro do Card */
-.card-produto h3 {
-    font-family: var(--font-tech);
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: var(--text-primary);
-}
-
-.card-produto .product-tag {
-    font-size: 0.8rem;
-    margin-bottom: 5px;
-}
-
-/* --- CONSOLIDAÇÃO MOBILE (768px) --- */
+/* ==========================================================================
+   6. RESPONSIVIDADE E ESTILOS MOBILE (768px)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
-    /* 1. Header e Menu */
+    /* Menu e Cabeçalho */
     header {
         width: 100%;
         padding: 15px 20px;
@@ -445,7 +436,69 @@ body.liberar-rolagem {
     .logo { font-size: 1.2rem; }
     header nav ul { gap: 15px; }
 
-    /* 2. Layout do Item e Imagem */
+    /* Alternância de Filtros Mobile / Desktop */
+    .filtros-desktop {
+        display: none !important;
+    }
+
+    .filtros-colecoes-mobile {
+        display: block;
+        width: 90%;
+        margin: 110px auto 10px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .btn-filtro-gatilho {
+        width: 100%;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 0, 0, 0.4);
+        color: #fff;
+        border-radius: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .dropdown-filtros {
+        display: none; 
+        flex-direction: column;
+        background: #0f0f1e; /* Cor idêntica ao fundo da página para cobrir o card */
+        border: 1px solid rgba(255, 0, 0, 0.4); /* Deixei a borda um pouco mais visível */
+        border-radius: 10px;
+        margin-top: 5px;
+        position: absolute;
+        width: 100%;
+        z-index: 150; /* Aumentado drasticamente para passar à frente dos cards e imagens */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para destacar do fundo */
+    }
+    
+    .dropdown-filtros.show {
+        display: flex;
+    }
+
+    .opcao-filtro {
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        color: #b8b8d0;
+        text-align: left;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .opcao-filtro:hover, .opcao-filtro.active {
+        background: rgba(255, 0, 0, 0.1);
+        color: #ff3131;
+    }
+
+    /* Ajustes dos Slides / Banner Interno */
     .item {
         flex-direction: column; 
         justify-content: center;
@@ -473,7 +526,6 @@ body.liberar-rolagem {
                 drop-shadow(0 0 30px rgba(255, 0, 0, 0.2));
     }
 
-    /* 3. Conteúdo de Texto */
     .content {
         width: 100%;
         height: auto;
@@ -511,7 +563,6 @@ body.liberar-rolagem {
         transition: all 0.5s ease;
     }
 
-    /* ESTADO EXPANDIDO (Onde o JS atua) */
     .description.expand {
         display: block !important;
         -webkit-line-clamp: unset !important; 
@@ -519,83 +570,25 @@ body.liberar-rolagem {
         overflow: visible !important;
     }
 
-    .tech-circle, .circle {
-        pointer-events: none; 
-        z-index: 0;
-    }
-
-    /* 4. Botão e Interface */
-    .btn {
+    /* Comportamentos de Toque Mobile nos Botões */
+    .btn, .btn.comprar {
         display: inline-block;
         padding: 10px 24px;
         font-size: 0.9rem;
         margin-top: 5px;
         margin-bottom: 40px;
         position: relative;
-        z-index: 100; /* Botão sempre à frente para garantir o clique */
-        touch-action: manipulation; /* Avisa ao navegador para não esperar por double-tap */
-        cursor: pointer;
+        z-index: 100; 
+        touch-action: manipulation; 
     }
 
-     .btn.comprar {
-        display: inline-block;
-        padding: 10px 24px;
-        font-size: 0.9rem;
-        margin-top: 5px;
-        margin-bottom: 40px;
-        position: relative;
-        z-index: 100; /* Botão sempre à frente para garantir o clique */
-        touch-action: manipulation; /* Avisa ao navegador para não esperar por double-tap */
-        cursor: pointer;
-    }
-
-    .item {
-        /* Garante que o container do slide não "roube" o toque do botão */
-        pointer-events: auto; 
-    }
-
-    .btn.comprar:active {
+    .btn:active, .btn.comprar:active {
         transform: scale(0.95);
         filter: brightness(1.2);
         transition: 0.1s;
     }
 
-    .btn:active {
-        transform: scale(0.95);
-        filter: brightness(1.2);
-        transition: 0.1s;
-    }
-
-    .arrows { display: none; }
-    .numbers { display: none; }
+    .arrows, .numbers { display: none; }
     .indicators { bottom: 30px; }
     .dots { gap: 12px; }
 }
-
-.filtros-colecoes {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    z-index: 2;
-    position: relative;
-    flex-wrap: wrap; /* Para não quebrar no celular */
-}
-
-.btn-filtro {
-    padding: 10px 25px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    color: #fff;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.4s ease;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-}
-
-.btn-filtro:hover, .btn-filtro.active {
-    background: linear-gradient(90deg, #ff000d, #ff3131);
-    border-color: #ff000d;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
